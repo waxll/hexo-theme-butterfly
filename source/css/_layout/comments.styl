@@ -6,7 +6,7 @@
       display: inline-block
       vertical-align: middle
       font-weight: 700
-      font-size: 20px
+      font-size: 1.43em
 
     .comment-switch
       display: inline-block
@@ -19,6 +19,8 @@
         border-radius: 8px
         background: $comments-switch-bg
       else
+        vertical-align: middle
+
         > span
           display: none
 
@@ -31,10 +33,10 @@
       label
         position: relative
         display: inline-block
-        margin: 0 .4rem
+        margin: -4px .4rem 0
         width: 42px
         height: 22px
-        vertical-align: sub
+        vertical-align: middle
 
         input#switch-comments-btn
           width: 0
