@@ -15,7 +15,7 @@ div
     script(src=url_for(theme.CDN.instantpage) type="module" defer)
 
   if theme.lazyload.enable
-    script(src=url_for(theme.CDN.lazyload) async)
+    script(src=url_for(theme.CDN.lazyload))
 
   if (theme.snackbar && theme.snackbar.enable)
     script(src=url_for(theme.CDN.snackbar))
@@ -33,8 +33,11 @@ div
     !=partial('includes/loading/loading-js', {}, {cache:theme.fragment_cache})
 
   .js-pjax
-    if is_home() && theme.subtitle.enable
+    if theme.subtitle.enable && is_home() && theme.index_img !== false
       include ./third-party/subtitle.pug
+    
+    if page.type === 'artitalk'
+      include ./third-party/artitalk.pug
 
     include ./third-party/math/index.pug
 
@@ -57,7 +60,7 @@ div
   !=partial('includes/third-party/effect', {}, {cache:theme.fragment_cache})
 
   !=partial('includes/third-party/chat/index', {}, {cache:theme.fragment_cache})
-
+  
   if theme.aplayerInject && theme.aplayerInject.enable
     if theme.pjax.enable || theme.aplayerInject.per_page
       include ./head/aplayer.pug
@@ -66,3 +69,6 @@ div
 
   if theme.pjax.enable
     !=partial('includes/third-party/pjax', {}, {cache:theme.fragment_cache})
+  
+  !=partial('includes/third-party/baidu_push', {}, {cache:theme.fragment_cache})
+  
