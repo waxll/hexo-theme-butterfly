@@ -173,6 +173,7 @@ index_post_content:
 toc:
   enable: true
   number: true
+  style_simple: false
 
 post_copyright:
   enable: true
@@ -239,7 +240,7 @@ addtoany:
 
 comments:
   # Up to two comments system, the first will be shown as default
-  # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Utterances/Facebook Comments
+  # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Utterances/Facebook Comments/Twikoo
   use:
   # - Valine
   # - Disqus
@@ -321,6 +322,10 @@ facebook_comments:
   pageSize: 10 # The number of comments to show
   order_by: social # social/time/reverse_time
   lang: en_US # Language en_US/zh_CN/zh_TW and so on
+
+# Twikoo
+# https://github.com/imaegoo/twikoo
+twikoo:
 
 # Chat Services
 # --------------------------------------
@@ -538,6 +543,7 @@ ClickShowText:
     # - LOVE
     # - YOU
   fontSize: 15px
+  random: false
   mobile: false
 
 # Default display mode (網站默認的顯示模式)
@@ -668,6 +674,9 @@ newest_comments:
     enable: false
     forum:
     api_key:
+  twikoo:
+    enable: false
+    default_avatar: # mp/identicon/monsterid/wavatar/retro/robohash/blank/404
 
 # Bottom right button (右下角按鈕)
 # --------------------------------------
@@ -810,12 +819,15 @@ Open_Graph_meta: true
 # Caches the contents in a fragment, speed up the generation (開啟hexo自帶的緩存,加快生成速度)
 fragment_cache: true
 
+# Add the vendor prefixes to ensure compatibility
+css_prefix: true
+
 # Inject
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-  # - <link rel="stylesheet" href="/xxx.css">
+    # - <link rel="stylesheet" href="/xxx.css">
   bottom:
     # - <script src="xxxx"></script>
 
@@ -839,6 +851,7 @@ CDN:
   disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js
   disqusjs_css: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css
   utterances: https://utteranc.es/client.js
+  twikoo: https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js
 
   # share
   addtoany: https://static.addtoany.com/menu/page.js
